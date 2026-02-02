@@ -28,7 +28,9 @@
                             {if isset($entry.properties.timeline_image) and $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 {$entry.properties.timeline_image}
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" {if isset($entry.properties.timeline_image) and $entry.properties.timeline_image}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
+                                {if isset($entry.properties.timeline_image) and $entry.properties.timeline_image}
+                                    <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" src="{$entry.properties.timeline_image}" alt=""/></a>
+                                {/if}
                             {/if}
                         </div>
                         <div class="timeline-body">
@@ -52,7 +54,9 @@
                             {if isset($entry.properties.timeline_image) and  $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 <div>{$entry.properties.timeline_image}</div>
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" {if isset($entry.properties.timeline_image) and $entry.properties.timeline_image}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
+                                {if isset($entry.properties.timeline_image) and $entry.properties.timeline_image}
+                                    <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" src="{$entry.properties.timeline_image}" alt=""/></a>
+                                {/if}
                             {/if}                        
                         </div>
                         <div class="col-md-7 blogstyle-post-body">

@@ -15,7 +15,9 @@
                     {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                         <div>{$entry.properties.timeline_image}</div>
                     {else}
-                        <a href="{$entry.link}" title="{$entry.title}"><img class="img-thumbnail" {if $entry.properties.timeline_image}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
+                        {if $entry.properties.timeline_image}
+                            <a href="{$entry.link}" title="{$entry.title}"><img class="img-thumbnail" src="{$entry.properties.timeline_image}" alt=""/></a>
+                        {/if}
                     {/if}                        
                 </div>
                 <div class="col-md-10 archive-post-body">
